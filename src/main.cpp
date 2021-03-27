@@ -1,34 +1,27 @@
+#include <iostream>
 #include "FilterManager.h"
 #include "Home.h"
 #include "Player.h"
-#include <iostream>
 
-using namespace std;
+int main () {
+	Home home;
 
-int main(int argc, char *argv[]) {
-    Home home;
+	Player p1 = Player(85, false);
+	Player p2 = Player(20, false);
+	Player p3 = Player(70, true);
+	Player p4 = Player(23, true);
 
-    Player p1 = Player(85, false);
-    Player p2 = Player(20, false);
-    Player p3 = Player(70, true);
-    Player p4 = Player(23, true);
+	FilterManager fm;
 
-    FilterManager fm;
+	std::cout << "Request player 1:" << std::endl;
+	fm.process(p1, home);
 
-    cout endl
-        << endl
-        << "Request player 1:" << endl;
-    p1.request(fm, home);
-    cout endl
-        << endl
-        << "Request player 2:" << endl;
-    p2.request(fm, home);
-    cout endl
-        << endl
-        << "Request player 3:" << endl;
-    p3.request(fm, home);
-    cout endl
-        << endl
-        << "Request player 4:" << endl;
-    p4.request(fm, home);
+	std::cout << "Request player 2:" << std::endl;
+	fm.process(p2, home);
+
+	std::cout << "Request player 3:" << std::endl;
+	fm.process(p3, home);
+
+	std::cout << "Request player 4:" << std::endl;
+	fm.process(p4, home);
 }
